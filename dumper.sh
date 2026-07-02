@@ -241,11 +241,11 @@ cd "${PROJECT_DIR}"/ || exit
 
 # Function for Extracting Super Images
 function superimage_extract() {
+  #  if [ -f super.img ]; then
+  #      echo "Extracting Partitions from the Super Image..."
+  #      ${SIMG2IMG} super.img super.img.raw 2>/dev/null
+  #  fi
     if [ -f super.img ]; then
-        echo "Extracting Partitions from the Super Image..."
-        ${SIMG2IMG} super.img super.img.raw 2>/dev/null
-    fi
-    if [[ ! -s super.img.raw ]] && [ -f super.img ]; then
         mv super.img super.img.raw
     fi
     for partition in $PARTITIONS; do
